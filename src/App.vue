@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <br />
-    <normal-joke msg="Get a Geek Joke" />
+    <normal-joke />
   </div>
 </template>
 
@@ -20,8 +20,9 @@ export default {
 <style>
 #app {
   font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 5vh;
+  text-align: justify;
+  margin: 10vh;
+  line-height: 2;
 }
 img {
   height: 9vh;

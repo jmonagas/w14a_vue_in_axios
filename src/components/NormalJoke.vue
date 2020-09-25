@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="something">
     <h4>Geek Jokes</h4>
     <br />
     <p>{{ joke }}</p>
@@ -13,9 +13,6 @@ import axios from "axios";
 
 export default {
   name: "normal-joke",
-  props: {
-    msg: String
-  },
   data() {
     return {
       joke: "Click Button to Reveal"
@@ -36,6 +33,9 @@ export default {
           console.log(error);
         });
     }
+  },
+  mounted: function() {
+    this.$root.$on("getNormalJoke", this.getNormalJoke);
   }
 };
 </script>
