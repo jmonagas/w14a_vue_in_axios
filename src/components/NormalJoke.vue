@@ -1,6 +1,6 @@
 <template>
-  <div class="something">
-    <h4>Geek Jokes</h4>
+  <div class="class1">
+    <h2>Geek Jokes</h2>
     <br />
     <p>{{ joke }}</p>
     <br />
@@ -10,6 +10,7 @@
 
 <script>
 import axios from "axios";
+// import LoudJoke from "./LoudJoke";
 
 export default {
   name: "normal-joke",
@@ -47,5 +48,8 @@ h3,
 h4,
 h5 {
   margin: auto;
+}
+p {
+  font-size: 1.5vw;
 }
 </style>

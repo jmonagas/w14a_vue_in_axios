@@ -1,12 +1,12 @@
 <template>
   <div>
-    <snake-joke></snake-joke>
+    <joke-button></joke-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "snake-joke"
+  name: "joke-button"
 };
 </script>
 

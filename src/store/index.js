@@ -16,12 +16,13 @@ export default new Vuex.Store({
   actions: {},
   getters: {
     // loudApi(state) {
-    //   return state.loudApi.sort((state, loudApi) => {
+    //   return state.loudApi((state, loudApi) => {
+    // console.log(store.state.getters.loudApi.toUpperCase()),
     //     return this.$store.state.loudApi.toUpperCase()
     //   });
     // },
     // snakeApi(state) {
-    //   return state.snakeApi.sort((state, snakeApi) => {
+    //   return state.snakeApi((state, snakeApi) => {
     //     return this.$store.state.snakeApi.toLowerCase()
     //   });
     // },
