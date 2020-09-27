@@ -1,14 +1,23 @@
 <template>
-  <div>
-    <joke-button></joke-button>
+  <div id="buts">
+    <h4>Get A Geek Joke Here</h4>
+    <button>Normal</button>
+    <button>Loud</button>
+    <button>Snake</button>
   </div>
 </template>
 
 <script>
-export default {
-  name: "joke-button"
-};
+export default {};
 </script>
 
 <style scoped>
+#buts {
+  background-color: chocolate;
+  padding: 3vh;
+  text-align: center;
+}
+h4 {
+  color: blanchedalmond;
+}
 </style>

@@ -1,13 +1,11 @@
 <template>
   <div>
-    <snake-joke></snake-joke>
+    <p>{{}}</p>
   </div>
 </template>
 
 <script>
-export default {
-  name: "snake-joke"
-};
+export default {};
 </script>
 
 <style scoped>

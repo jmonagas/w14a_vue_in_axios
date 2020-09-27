@@ -1,30 +1,34 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // loudApi: [{
-    //   url: "https://geek-jokes.sameerkumar.website/api?format=json"
-    // }],
-    // snakeApi: [{
-    //   url: "https://geek-jokes.sameerkumar.website/api?format=json"
-    // }],
+    jokes: []
   },
-  mutations: {},
-  actions: {},
-  getters: {
-    // loudApi(state) {
-    //   return state.loudApi((state, loudApi) => {
-    // console.log(store.state.getters.loudApi.toUpperCase()),
-    //     return this.$store.state.loudApi.toUpperCase()
-    //   });
-    // },
-    // snakeApi(state) {
-    //   return state.snakeApi((state, snakeApi) => {
-    //     return this.$store.state.snakeApi.toLowerCase()
-    //   });
-    // },
+  mutations: {
+    changeJokes: function (state, data) {
+      state.jokes = data;
+    }
   },
+  actions: {
+    getJokes: function (context) {
+      axios
+        .request({
+          url: "https://geek-jokes.sameerkumar.website/api?format=json",
+          method: "Get"
+        })
+        .then(response => {
+          context.commit("changeJokes", response.data.joke);
+          console.log(response.data.joke);
+          this.joke = response.data.joke;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  getters: {},
 });

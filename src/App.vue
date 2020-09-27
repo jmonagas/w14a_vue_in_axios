@@ -1,40 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Geek Logo" src="./assets/logo.png" />
-    <br />
-    <normal-joke></normal-joke>
-    <!-- <loud-joke></loud-joke>
-    <snake-joke></snake-joke>
-    <joke-button></joke-button> -->
+    <div id="top">
+      <img alt="Geek Logo" src="./assets/logo.png" />
+    </div>
+    <div id="main">
+      <joke-button></joke-button>
+      <normal-joke></normal-joke>
+      <loud-joke></loud-joke>
+      <snake-joke></snake-joke>
+    </div>
   </div>
 </template>
 
 <script>
+import JokeButton from "./components/JokeButton.vue";
 import NormalJoke from "./components/NormalJoke.vue";
-// import LoudJoke from "./components/LoudJoke.vue";
-// import SnakelJoke from "./components/SnakeJoke.vue";
-// import JokeButton from "./components/JokeButton.vue";
+import LoudJoke from "./components/LoudJoke.vue";
+import SnakeJoke from "./components/SnakeJoke.vue";
 
 export default {
   name: "App",
   components: {
-    NormalJoke
-    // LoudJoke,
+    JokeButton,
+    NormalJoke,
+    LoudJoke,
+    SnakeJoke
+  },
+  mounted: function() {
+    this.$store.dispatch("getJokes");
   }
 };
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Arial, sans-serif;
-  font-size: 1.2vw;
-  text-align: justify;
-  margin: 10vh;
-  padding: 5vw;
-  line-height: 2;
-  background-color: rgb(242, 247, 247);
+  margin: 3vh;
+  padding: 3vw;
+  line-height: 1.5;
+  background-color: rgb(212, 228, 228);
 }
 img {
-  height: 15vh;
+  height: 10vh;
+  margin-left: 30px;
+}
+#top {
+  display: grid;
+}
+#main {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  background-color: burlywood;
 }
 </style>
