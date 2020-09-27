@@ -9,7 +9,7 @@ export default new Vuex.Store({
     jokes: []
   },
   mutations: {
-    changeJokes: function (state, data) {
+    newJokes: function (state, data) {
       state.jokes = data;
     }
   },
@@ -21,7 +21,7 @@ export default new Vuex.Store({
           method: "Get"
         })
         .then(response => {
-          context.commit("changeJokes", response.data.joke);
+          context.commit("newJokes", response.data.joke);
           console.log(response.data.joke);
           this.joke = response.data.joke;
         })

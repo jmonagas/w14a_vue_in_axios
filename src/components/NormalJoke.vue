@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>This is a Basic Geek Joke</p>
     <p>{{}}</p>
   </div>
 </template>

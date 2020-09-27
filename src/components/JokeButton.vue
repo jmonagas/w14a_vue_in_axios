@@ -1,5 +1,5 @@
 <template>
-  <div id="buts">
+  <div id="btns">
     <h4>Get A Geek Joke Here</h4>
     <button>Normal</button>
     <button>Loud</button>
@@ -12,12 +12,12 @@ export default {};
 </script>
 
 <style scoped>
-#buts {
+#btns {
   background-color: chocolate;
   padding: 3vh;
   text-align: center;
 }
 h4 {
-  color: blanchedalmond;
+  color: white;
 }
 </style>
