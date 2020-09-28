@@ -1,34 +1,38 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+import axios from "axios"
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    jokes: []
+    joke: " ",
   },
   mutations: {
-    newJokes: function (state, data) {
-      state.jokes = data;
+    updateJoke: function (state, joke) {
+      state.joke = joke;
     }
   },
   actions: {
-    getJokes: function (context) {
-      axios
-        .request({
-          url: "https://geek-jokes.sameerkumar.website/api?format=json",
-          method: "Get"
-        })
+    newJoke: function (context) {
+      axios.request({
+        url: "https://geek-jokes.sameerkumar.website/api?format=json",
+        method: "get"
+      })
         .then(response => {
-          context.commit("newJokes", response.data.joke);
-          console.log(response.data.joke);
-          this.joke = response.data.joke;
+          context.commit("updateJoke", response.data.joke);
         })
         .catch(error => {
           console.log(error);
         });
     }
   },
-  getters: {},
+  getters: {
+    snake: function (state) {
+      return state.joke.split(" ").join("_");
+    },
+    loud: function (state) {
+      return state.joke.toUpperCase();
+    }
+  },
 });

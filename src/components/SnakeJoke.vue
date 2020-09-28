@@ -1,12 +1,18 @@
 <template>
   <div>
-    <p>This is a Snake Geek Joke</p>
-    <p>{{}}</p>
+    <h4>{{ joke }}</h4>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "snake-joke",
+  computed: {
+    joke() {
+      return this.$store.getters.snake;
+    }
+  }
+};
 </script>
 
 <style scoped>

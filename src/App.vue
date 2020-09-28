@@ -1,54 +1,63 @@
 <template>
   <div id="app">
-    <div id="top">
-      <img alt="Geek Logo" src="./assets/logo.png" />
-    </div>
+    <img alt="Logo" src="./assets/logo.png" />
+    <jokebutton />
     <div id="main">
-      <joke-button></joke-button>
-      <normal-joke></normal-joke>
-      <loud-joke></loud-joke>
-      <snake-joke></snake-joke>
+      <button class="btn" @click="pick(1)">Loud Joke</button>
+      <button class="btn" @click="pick(2)">Snake Joke</button>
+      <button class="btn" @click="pick(3)">Normal Joke</button>
     </div>
+    <loudjoke v-if="opt == 1" />
+    <normaljoke v-if="opt == 3" />
+    <snakejoke v-if="opt == 2" />
   </div>
 </template>
 
 <script>
-import JokeButton from "./components/JokeButton.vue";
-import NormalJoke from "./components/NormalJoke.vue";
-import LoudJoke from "./components/LoudJoke.vue";
-import SnakeJoke from "./components/SnakeJoke.vue";
+import jokebutton from "./components/jokebutton";
+import snakejoke from "./components/snakejoke";
+import normaljoke from "./components/normaljoke";
+import loudjoke from "./components/loudjoke";
 
 export default {
   name: "App",
   components: {
-    JokeButton,
-    NormalJoke,
-    LoudJoke,
-    SnakeJoke
+    jokebutton,
+    snakejoke,
+    normaljoke,
+    loudjoke
   },
-  mounted: function() {
-    this.$store.dispatch("getJokes");
+  data: function() {
+    return {
+      opt: 3
+    };
+  },
+  methods: {
+    pick(opt) {
+      this.opt = opt;
+    }
   }
 };
 </script>
 
-<style scoped>
+<style>
 #app {
-  margin: 3vh;
-  padding: 3vw;
-  line-height: 1.5;
-  background-color: rgb(212, 228, 228);
+  font-family: Arial, sans-serif;
+  margin: 10vh;
+  padding: 2vh;
+  background: rgb(255, 206, 131);
+  min-height: 80vh;
 }
 img {
   height: 10vh;
   margin-left: 30px;
+  margin-top: 30px;
 }
-#top {
-  display: grid;
+.btn {
+  padding: 1vh 2vh;
 }
 #main {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  background-color: burlywood;
+  padding: 2vh 3vh;
+  margin-left: 30px;
 }
 </style>
